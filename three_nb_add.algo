@@ -1,0 +1,39 @@
+//test
+ALGORITHM SOMME
+VAR
+    num1,num2,num3 : INTEGER,
+    sum : INTEGER:=0;
+BEGIN
+    read (num1);
+    read (num2);
+    read (num3);
+    sum := num1+num2+num3;
+    write (sum);
+END
+
+//checkpoint :D
+
+ALGORITHM sentence
+VAR
+    lenth,word,vowel : INTEGER:=0;
+    current_character : CHAR;
+BEGIN
+    read (current_character);
+    WHILE (current_character<> '.') DO
+
+        lenth = lenth+1;
+    IF (current_character == " ") THEN
+
+        word = word+1;
+    END_IF   
+    IF (current_character== "a" || "e" || "o" || "u") THEN
+        vowel = vowel+1;
+    END_IF 
+    read(current_character);
+    END_WHILE
+    lenth =lenth+1;
+    word =word+1;
+    write("lenght is"),lenth;
+    write("number of word"),word;
+    write("number of vowel"),vowel;
+END
