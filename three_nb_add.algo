@@ -1,30 +1,37 @@
 
-ALGORITHM sentence
-VAR
-    lenth,word,vowel : INTEGER:=0;
-    sentence : STRING;
-    i : INTEGER :=0;
-    j : INTEGER :=0;
-    k : INTEGER :=0;
-BEGIN
-    read (sentence);
-    WHILE (sentence [i]<> ".") DO
-        lenth = lenth+1;
-        i := i+1 ;
-    
-    IF (sentence [j] = " "  and sentence [j] <> ".") THEN
-        word = word+1;
-    j := j+1
-    END_IF   
+ALGORITHM checkpoint
 
-    IF (sentence [k]= "a" or sentence [k]="e" or sentence [k]= "o" or  sentence [k]="u" or sentence [k]= "i") THEN
-        vowel = vowel+1;
-        k :=k+1;
-    END_IF 
-    read(sentence);
-    END_WHILE
-    
-    write("lenght is"),lenth;
-    write("number of word"),word;
-    write("number of vowel"),vowel;
+sentence : STRING
+nb_words, nb_vowels, sentence_length : INTEGER := 0
+i : INTEGER:=0
+j : INTEGER:=0
+k : INTEGER:=0
+
+BEGIN
+
+Read(sentence)
+// longueur de chaine de caractere
+WHILE (sentence[i] <> ".") DO
+    sentence_length := sentence_length + 1
+    i := i + 1
+END_WHILE
+
+// nombre de mots
+FOR j FROM 0 TO sentence_length STEP do
+    IF (sentence[j] = " ") THEN
+        nb_words := nb_words + 1
+    END_IF
+END_FOR
+
+// nombre de voyelle
+FOR k FROM 0 TO sentence_length STEP do
+    IF (sentence[k] = "e" or sentence[k] = "i" or sentence[k] = "o" or sentence[k] = "a" or sentence[k] = "u") THEN
+        nb_vowels := nb_vowels + 1
+    END_IF
+END_FOR
+
+Write("Sentence Length : ", sentence_length)
+Write("Words Count : ", nb_words)
+Write("Vowels Count : ", nb_vowels)
+
 END
